@@ -894,6 +894,96 @@ input:focus,select:focus,textarea:focus{border-color:#766be0!important;box-shado
 }
 </style>
 
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+:root{
+ --bg:#0d0e12;--bg-card:#15171d;--bg-elevated:#1b1e26;--border:#272b35;
+ --text:#f3f4f6;--text-secondary:#a5a9b4;--text-muted:#707582;
+ --green:#8b7cf6;--green-dim:rgba(139,124,246,.12);--green-glow:rgba(139,124,246,.18);
+ --blue:#8b7cf6;--blue-dim:rgba(139,124,246,.12);--purple:#8b7cf6;
+ --radius-sm:10px;--radius-md:14px;--radius-lg:18px;
+ --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+html{background:var(--bg)} body{font-family:var(--font);background:var(--bg);color:var(--text);letter-spacing:-.01em}
+button,input,select,textarea{font-family:inherit}
+/* acabamento geral */
+.screen{max-width:1180px;margin:0 auto;padding:0 28px 100px}
+.section-title{font-size:13px;font-weight:600;letter-spacing:-.01em;margin:28px 0 14px;color:#e7e8ec}
+.section-title::before{display:none}
+.section-title .add-btn{width:32px;height:32px;border-radius:10px;background:transparent;border-color:var(--border);color:var(--text-secondary)}
+.section-title .add-btn:hover{background:var(--bg-elevated);color:var(--green);border-color:#383d49}
+/* menos “dashboard”: superfícies discretas */
+.stat-box,.week-card,.subject-card,.sim-card,.mentoria-card,.revisao-materia-group,.revisao-old-card,.flashcard-box,.schedule-detail,.study-command-center,.analysis-card,.error-card,.performance-card{box-shadow:none!important;border-color:var(--border)!important;background:var(--bg-card)!important}
+.stat-box{border-radius:12px;padding:14px 10px}
+.stat-value{font-weight:650}
+.stat-label{font-size:9px;letter-spacing:.06em;text-transform:none;color:var(--text-muted)}
+/* evitar excesso de cor */
+[style*="var(--green)"],[style*="var(--blue)"],[style*="var(--purple)"]{text-shadow:none!important}
+.progress-fill,.revisao-progress-fill{background:var(--green)!important;box-shadow:none!important}
+/* cards: mais respiro, menos decoração */
+.week-card,.subject-card,.sim-card,.mentoria-card,.revisao-materia-group{border-radius:14px}
+.week-card:hover{transform:none!important;border-color:#3b3f4a!important}
+.subject-card:hover,.sim-card:hover{transform:translateY(-1px);border-color:#3b3f4a!important}
+/* cabeçalhos */
+.dashboard-hero{border:1px solid var(--border)!important;background:linear-gradient(145deg,#171921 0%,#111218 100%)!important;box-shadow:none!important;border-radius:22px!important}
+.dashboard-hero .eyebrow,.mentoria-badge{color:#aaa3ff!important;letter-spacing:.08em!important}
+.dashboard-hero h2{letter-spacing:-.035em}
+.hero-action.primary{background:var(--green)!important;color:#fff!important;box-shadow:none!important}
+.hero-action{border-color:var(--border)!important;background:rgba(255,255,255,.02)!important}
+/* navegação */
+.nav-bottom{background:rgba(13,14,18,.96)!important;border-top:1px solid var(--border)!important}
+.nav-item{font-size:10px;color:#777d89}
+.nav-item.active{color:var(--green)}
+.nav-item svg{opacity:.78}
+/* cronograma: duas matérias como foco */
+#screen-cronograma .day-pills{border-bottom:1px solid var(--border);padding-bottom:8px}
+#screen-cronograma .day-pills button{border:0!important;background:transparent!important;color:var(--text-muted)!important;border-radius:9px!important}
+#screen-cronograma .day-pills button.active{background:var(--green-dim)!important;color:#c9c4ff!important}
+#studyCommandCenter{border-radius:16px!important}
+/* revisão: transformar em lista de tarefas */
+#screen-revisao{max-width:920px}
+#screen-revisao .revisao-header{background:transparent!important;border:0!important;padding:28px 0 12px!important;box-shadow:none!important}
+#screen-revisao .revisao-header-title{font-size:24px!important;font-weight:650!important;letter-spacing:-.035em}
+#screen-revisao .revisao-header-date{color:var(--text-muted)!important;font-size:12px}
+#screen-revisao .revisao-stats-row{display:none!important}
+#screen-revisao .revisao-progress-row{margin-top:18px!important}
+#screen-revisao .revisao-progress-bar{height:5px!important;background:#22252d!important}
+#screen-revisao .revisao-progress-text{font-size:11px!important;color:var(--text-secondary)!important}
+#screen-revisao .revisao-alert{background:transparent!important;border:0!important;color:var(--text-muted)!important;padding:8px 0!important;font-size:11px!important}
+#screen-revisao .section-title{font-size:12px!important;margin-top:24px!important;color:var(--text-secondary)!important}
+#screen-revisao .revisao-materia-group{background:transparent!important;border:0!important;border-bottom:1px solid var(--border)!important;border-radius:0!important}
+#screen-revisao .revisao-materia-header{padding:16px 4px!important;background:transparent!important}
+#screen-revisao .revisao-materia-header .icon{width:30px!important;height:30px!important;border-radius:9px!important}
+#screen-revisao .revisao-materia-header .name{font-size:14px!important;font-weight:600!important}
+#screen-revisao .revisao-materia-header .badge{background:transparent!important;color:var(--text-muted)!important;font-size:11px!important}
+#screen-revisao .revisao-topico-row{padding:11px 4px!important;border-top:0!important}
+#screen-revisao .revisao-topico-text{font-size:13px!important;color:#d7d9df!important}
+#screen-revisao .revisao-topico-meta{font-size:10px!important;color:var(--text-muted)!important;margin-top:3px}
+#screen-revisao .revisao-old-actions{padding-bottom:12px}
+#screen-revisao .revisao-old-btn{border-radius:8px!important;background:transparent!important;border:1px solid var(--border)!important;color:var(--text-secondary)!important;font-size:11px!important}
+#screen-revisao .revisao-old-btn:hover{color:var(--text)!important;border-color:#414652!important;background:var(--bg-elevated)!important}
+/* textos auxiliares: discretos */
+.screen>div[style*="font-size:12px"]{color:var(--text-muted)!important}
+/* mentoria: uma peça principal, não uma pilha de cartões */
+#screen-mentoria .mentoria-card{border-radius:16px!important}
+#screen-mentoria .mentoria-card.motivacao{background:transparent!important;border:0!important;padding-left:2px!important}
+/* desempenho: números primeiro, detalhes depois */
+#screen-desempenho .stats-row{gap:10px}
+#screen-desempenho .stat-box{min-height:76px}
+/* modais */
+.modal,.modal-content,.dialog,.modal-box{box-shadow:0 20px 60px rgba(0,0,0,.45)!important;border-color:#2b2f39!important;border-radius:18px!important}
+/* desktop */
+@media(min-width:900px){
+ .nav-bottom{position:fixed;left:20px;right:auto;bottom:20px;width:210px;display:grid;grid-template-columns:repeat(2,1fr);padding:8px;border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.28)}
+ .nav-item{padding:9px 5px;border-radius:10px}
+ .nav-item.active{background:var(--green-dim)}
+ .screen{padding-left:280px;padding-right:44px}
+ #screen-dashboard{padding-left:280px}
+}
+@media(max-width:899px){.screen{padding-left:16px;padding-right:16px}.dashboard-hero{border-radius:18px!important}.section-title{margin-top:22px}}
+</style>
+
 </head>
 <body>
 
